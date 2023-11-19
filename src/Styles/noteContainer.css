@@ -1,0 +1,36 @@
+
+
+
+
+.home-main-container{
+    width:calc(100% - 8rem) ;
+    height: 92vh;
+    overflow: scroll;
+}
+
+.App-name{
+    margin: 3rem 1rem;
+}
+
+
+.all-note-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    height: 64.5vh;
+    width: 100%;
+  
+}
+.input-group-text{
+    height: 3rem !important; 
+    padding: 0px;
+    font-size: 2rem;
+    width: 4rem;
+    padding-left: 1rem;
+}
+.form-control{
+    height: 3rem !important;
+}
+.form-control:focus{
+    outline: none !important;
+}

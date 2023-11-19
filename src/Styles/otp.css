@@ -1,0 +1,17 @@
+.otp{
+    text-align: center;
+  }
+  .otp-container{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .otp-container>input{
+    width: 34px;
+    font-size: 18px;
+    text-align: center;
+  }
+  .otp>button{
+    margin-top: 20px;
+  }

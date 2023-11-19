@@ -1,0 +1,13 @@
+.sidebar{
+    height: 92vh;
+    width: 8rem;
+    padding: 1rem;
+    background-color: rgb(225, 210, 238);
+    border-radius: 10px;
+}
+
+.icon-container{
+    position: absolute;
+    font-size: 5rem;
+}
+

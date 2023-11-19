@@ -1,0 +1,45 @@
+.note{
+    padding: 25%;
+    height: 21.5rem;
+    width: 23.4rem;
+    display: flex;
+    flex-direction: column;
+    background-color: blueviolet;
+    border-radius: 30px;
+    color: rgb(255, 255, 255);
+    border: 1px solid transparent;
+}
+.note:hover{
+    color: blueviolet;
+    background-color: rgb(233, 206, 241);
+}
+
+.note>header{
+    position: relative;
+    top: -6.8rem;
+    right: 5rem;
+}
+
+.note>svg{
+    position: relative;
+    top:-5.5rem;
+    right: -13rem;
+    font-size: 3.5rem;
+}
+
+.note>footer{
+    position: relative;
+    bottom: -5.5rem;
+    left: -4.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 20rem;
+}
+.note>footer>p{
+    padding: 0px;
+    margin: 0px !important;
+}
+.note>footer>svg{
+    font-size: 1.8rem;
+}
