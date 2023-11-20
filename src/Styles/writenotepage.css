@@ -16,10 +16,6 @@
     resize: none;
   }
  
-  .textarea:focus{
-    outline: none !important;
-    border: none;
-  }
   
   .color-selectors {
     display: flex;
@@ -40,3 +36,26 @@
     background-color: #0056b3;
   }
   
+  @media screen and (max-width:1000px) {
+    .write-note-container{
+      height: 70vh;
+    }
+    .textarea{
+      height: 26vh !important;
+    }
+    
+  }
+
+  @media screen and (max-width:599px) {
+    .input-group-text{
+      width: fit-content !important;
+    }
+    .write-note-container{
+      width: 100% !important;
+      height: 100% !important;
+    }
+    .textarea{
+      height: 47vh !important;
+    }
+    
+  }

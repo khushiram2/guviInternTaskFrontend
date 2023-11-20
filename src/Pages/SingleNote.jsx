@@ -15,7 +15,20 @@ export const SingleNote = ({data}) => {
     const navigate=useNavigate()
     const {setnoteschanged,noteschanged}=useNoteContext()
     const {userId}=useParams()
+
+
+    const date=new Date(data.updatedAt)
+
+    const formattedDate = date.toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+      });
+
     const handleEdit=()=>{
+        console.log("ahahhaaa")
         navigate(`/${userId}/${data._id}`)
     }
 
@@ -31,18 +44,19 @@ export const SingleNote = ({data}) => {
   return (
     <div className="note">
         <FaPen onClick={handleEdit} />
+
         <header>
 
         <h3>{data.title}</h3>
         </header>
-        <div>
-        <p>{data.body}</p>
+        <div className="note-content">
+        <p>{data.content}</p>
 
         </div>
         <footer>
             <p>
 
-        {data.updatedAt}
+        {formattedDate}
             </p>
         <FaRegTrashCan onClick={handleDelete} />
         </footer>

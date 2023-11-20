@@ -11,3 +11,21 @@
     font-size: 5rem;
 }
 
+@media screen and (max-width:500px) {
+    .sidebar{
+        height: 30px;
+        width: 30px;
+        padding: 1rem;
+        background-color:transparent;
+        border-radius: 10px;
+        position: absolute;
+        top: 70%;
+        left: 70%;
+    }
+    .icon-container{
+        font-size: 5rem;
+        left: -1rem;
+        top:50px;
+    }
+    
+}

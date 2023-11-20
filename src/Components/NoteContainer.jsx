@@ -9,9 +9,14 @@ import { useNoteContext } from "../Context/CustomuseContexthook"
 
 
 export const NoteContainer = () => {
-const {allNotes}=useNoteContext()
+const {allNotes,setallNotes}=useNoteContext()
 
-
+const handleSearch = (e) => {
+  const filteredNotes = allNotes.filter((note) =>
+    note.content.toLowerCase().includes(e.target.value.toLowerCase())
+  );
+    setallNotes(filteredNotes)
+};
 
 return(
     <div className="home-main-container" >
@@ -21,6 +26,7 @@ return(
         <FormControl
           placeholder="Search"
           aria-label="search"
+          onChange={handleSearch}
         />
       </InputGroup>
       <div className="App-name">
