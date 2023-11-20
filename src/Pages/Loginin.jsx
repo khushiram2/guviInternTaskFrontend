@@ -4,6 +4,7 @@ import { Button, Container, Form, FormControl, FormGroup, FormLabel } from "reac
 import { Link, useNavigate } from "react-router-dom"
 import { API } from "../GlopbalApi/GlobalApi"
 import { toast } from "react-toastify"
+import { InfoModal } from "../Components/InfoModal"
 
 
 export const Login = () => {
@@ -11,11 +12,19 @@ export const Login = () => {
         email:"",
         password:""
     })
+    const [show, setshow] = useState(false)
     const navigate=useNavigate()
 
+const fillDetails=()=>{
+  setUserData({
+    email:"ricki.riski@gmail.com",
+    password:"1234567"
+  })
+}
 
-
-
+const handleClose = () => {
+  setshow(false)
+}
     const handleChange=(e)=>{
 setUserData({
     ...userData,
@@ -48,6 +57,7 @@ setUserData({
       };
   return (
     <Container>
+      <InfoModal show={show} handleClose={handleClose}  />
     <h1>Login Form</h1>
     <Form onSubmit={handleSubmit}>
       <FormGroup>
@@ -57,6 +67,7 @@ setUserData({
           name="email"
           onChange={handleChange}
           required
+          value={userData.email}
         />
       </FormGroup>
       <FormGroup>
@@ -66,6 +77,7 @@ setUserData({
           name="password"
           onChange={handleChange}
           required
+          value={userData.password}
         />
       </FormGroup>
       <Button type="submit">Login</Button>
@@ -73,6 +85,9 @@ setUserData({
     <div className="d-flex">
       <p>Don&apos;t have an account</p> &nbsp; <Link to="/register">register</Link>
     </div>
+    <div> <Button onClick={fillDetails} >Auto fill</Button> </div>
+    <div> <Button onClick={()=>setshow(true)}  >Info about app</Button> </div>
   </Container>
+
   )
 }

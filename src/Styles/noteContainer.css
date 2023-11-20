@@ -43,7 +43,9 @@
     overflow: scroll;
 }
 }
-
+.modal-content{
+    height: 150px ;
+}
 
 @media screen and (max-width : 599px ) {
     .all-note-container{
