@@ -12,8 +12,8 @@ export const WriteNotePage = () => {
     title:"",
     content:""
   });
-  const [fontColor, setFontColor] = useState('#000000'); // Default to black
-  const [backgroundColor, setBackgroundColor] = useState('#ffffff'); // Default to white
+  const [fontColor, setFontColor] = useState('#000000'); 
+  const [backgroundColor, setBackgroundColor] = useState('#ffffff');
 const {noteId,userId}=useParams()
 const navigate=useNavigate()
   const handleNoteChange = (e) => {
@@ -58,9 +58,9 @@ const getnotebyid=async()=>{
         notedata:{
             userId:userId,
             title:noteData.title,
-            content:noteData.content
-        },
-        styles:styles
+            content:noteData.content,
+          },
+          styles:styles
     }
     const {data}= await axiosInstance.put(`${API}/note/edit`,datatobesent)
     if(data.successStatus===true){
