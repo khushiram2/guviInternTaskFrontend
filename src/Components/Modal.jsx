@@ -9,14 +9,20 @@ import { useNoteContext } from "../Context/CustomuseContexthook"
 
  const FormModal = ({show,handleClose}) => {
     const [title, setTitle] = useState("")
+    const [timeItWillTake, setTimeItWillTake] = useState(0)
+    const [endDateAndTime, setendDateAndTime] = useState("")
     const {userId}=useParams()
     const {noteschanged,setnoteschanged}=useNoteContext()
     const createNewNote = async () => {
         try {
-            const {data}= await axiosInstance.post(`${API}/note/new`,{userId:userId,title:title})
+            console.log(timeItWillTake);
+            const {data}= await axiosInstance.post(`${API}/note/new`,{userId:userId,title:title,endTime:endDateAndTime,timeItWillTake:timeItWillTake})
             if(data.successStatus===true){
                 toast.success("note created sucessfully",{autoClose:5000,closeOnClick:true})
                 setnoteschanged(!noteschanged)
+                setTitle("")
+                setTimeItWillTake(0)
+                setendDateAndTime("")
                 handleClose()
             }else{
                 toast.error("couldn't create new note please try again",{autoClose:5000,closeOnClick:true})
@@ -28,12 +34,14 @@ import { useNoteContext } from "../Context/CustomuseContexthook"
         
     }
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose} >
         <ModalHeader>
             New Note
         </ModalHeader>
-        <ModalBody>
+        <ModalBody>         
             <FormControl onChange={(e)=>setTitle(e.target.value)} type="text" placeholder="please enter the title"   />
+            <FormControl onChange={(e)=>setTimeItWillTake(e.target.value)} type="number" placeholder="please enter the time it will take to complete"   />
+            <FormControl onChange={(e)=>setendDateAndTime(e.target.value)} type="datetime-local" />           
         </ModalBody>
         <ModalFooter>
             <Button onClick={createNewNote} >Create new note</Button>

@@ -25,9 +25,9 @@ function App() {
     <Route  path='/' element={<Navigate replace to="/login"/>}/>
     <Route path="/login" element={<Login/>}/>
     <Route path="/register" element={<Register/>}/>
+    <Route path="/:userId/otp" element={<Otp/>}/>
 
     <Route path='/:userId' element={<PrivateRoute/>}>
-    <Route path="/:userId/otp" element={<Otp/>}/>
     <Route path="/:userId/home" element={<Home/>}/>
     <Route path="/:userId/:noteId" element={<WriteNotePage/>}/>
 

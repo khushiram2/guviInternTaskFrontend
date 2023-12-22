@@ -2,6 +2,7 @@ import PropTypes from "prop-types"
 import "../Styles/singlenote.css"
 import { FaPen } from "react-icons/fa6";
 import { FaRegTrashCan } from "react-icons/fa6";
+import { MdOutlineDone } from "react-icons/md";
 import { useNavigate, useParams } from "react-router-dom";
 import axiosInstance from "../AxiosInstance/axiosinstance";
 import { API } from "../GlopbalApi/GlobalApi";
@@ -26,6 +27,14 @@ export const SingleNote = ({data}) => {
         hour: 'numeric',
         minute: 'numeric',
       });
+      const endTime= new Date(data.endTime)
+      const formatedendTime= endTime.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+      })
 
     const handleEdit=()=>{
         console.log("ahahhaaa")
@@ -41,23 +50,47 @@ export const SingleNote = ({data}) => {
             toast.error("couldn't delete try again",{autoClose:5000,closeOnClick:true})
         }
     }
+
+    const handleDone=async()=>{
+try {
+    const res= await axiosInstance.put(`${API}/note/completed/${data._id}`)
+    if(res.data.successStatus){
+        toast.success("task marked as complete")
+        setnoteschanged(!noteschanged)
+
+    }else{
+        toast.error("couldn't mark completed, try again",{autoClose:5000,closeOnClick:true})
+
+    }
+} catch (error) {
+    
+}
+    }
+
   return (
     <div className="note">
-        <FaPen onClick={handleEdit} />
-
         <header>
 
         <h3>{data.title}</h3>
+       <div className="actions">
+        <FaPen onClick={handleEdit} />
+        <MdOutlineDone onClick={handleDone} />
+        </div> 
         </header>
         <div className="note-content">
         <p>{data.content}</p>
 
         </div>
         <footer>
-            <p>
+            <div className="dateContainer">
 
-        {formattedDate}
+            <p>
+       updated : {formattedDate}
             </p>
+            <p>
+            end time: {formatedendTime}
+            </p>
+            </div>
         <FaRegTrashCan onClick={handleDelete} />
         </footer>
         

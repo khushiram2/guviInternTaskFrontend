@@ -7,9 +7,8 @@ axiosInstance.interceptors.request.use(
     const token=window.localStorage.getItem("token")
         if(token){
             config.headers.Authorization = token;
-            return config;
-
         }
+        return config;
     },
     (error) => {
         return Promise.reject(error);

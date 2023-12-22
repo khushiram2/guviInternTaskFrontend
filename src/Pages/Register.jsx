@@ -49,11 +49,11 @@ const handleChange=(e)=>{
         </FormGroup>
         <FormGroup>
             <FormLabel>Email</FormLabel>
-            <FormControl type='text' name='email' onChange={handleChange} required />
+            <FormControl type='email' name='email' onChange={handleChange} required />
         </FormGroup>
         <FormGroup>
             <FormLabel>Password</FormLabel>
-            <FormControl type='text' name='password' onChange={handleChange} required />
+            <FormControl type='password' name='password' onChange={handleChange} required />
         </FormGroup>
     <Button type='submit' >Register</Button>
     </Form>

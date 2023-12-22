@@ -14,23 +14,21 @@
     background-color: rgb(233, 206, 241);
 }
 
-.note>header{
-    position: relative;
-    top: -2.8rem;
-    right: 0rem;
-    width: 100px;
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+.actions{
+ width: 20%;
+display: flex;
+justify-content: space-between;
+font-size: 20px;
+}
+
 .note-content{
     height: 4rem;
 }
-
-.note>svg{
-    position: relative;
-    top: -0.5rem;
-    right: -18rem;
-    font-size: 2.5rem;
-}
-
 
 .note>footer{
     position: relative;
@@ -41,7 +39,7 @@
     align-items: center;
     width: 100%;
 }
-.note>footer>p{
+.note>footer>div>p{
     padding: 0px;
     margin: 0px !important;
 }
